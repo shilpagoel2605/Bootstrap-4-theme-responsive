@@ -1,0 +1,32 @@
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>jQuery UI Datepicker functionality</title>
+    <link href="https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+
+    <!-- Javascript -->
+    <script>
+        var enableDays = ["2-10-2022", "9-10-2022"];
+        function enableAllTheseDays(date) {
+            var sdate = $.datepicker.formatDate('d-m-yy', date)
+            if ($.inArray(sdate, enableDays) != -1) {
+                return [true];
+            }
+            return [false];
+        }
+        $(function () {
+            $('#datepicker-11').datepicker({ dateFormat: 'dd-mm-yy', beforeShowDay: enableAllTheseDays });
+
+        });
+    </script>
+</head>
+
+<body>
+    <!-- HTML -->
+    <p>Enter Date: <input type="text" id="datepicker-11"></p>
+</body>
+
+</html>
